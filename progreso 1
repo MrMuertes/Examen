@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+#include<math.h>
+//Calcular la distancia euclidiana de tres distacias en el plano carteciano x & y y calcular el punto dentro del plano que seria
+//varicentro del triangulo descrito por las distacias
+int Px1, Px2, Px3, Py1, Py3, Py2;
+float Rdis,Rvarix,Rvariy,Disp1p2,Disp2p3,Disp1p3;
+float Varicentro(int p1,int p2, int p3)
+{
+float varime;
+float suma;
+suma=(p1+p2+p3);
+varime=(suma)/3;
+return varime;
+}
+float Distancia(int x1,int x2, int y1, int y2)
+{
+float Distane;
+float elevax,elevay;
+float restax1, restay1;
+float sumaxy;
+restax1=(x2-x1);
+restay1=(y2-y1);
+elevax=pow(restax1,2);
+elevay=pow(restay1,2);
+sumaxy=elevax+elevay;
+Distane= sqrt(sumaxy);
+
+
+
+return Distane;	
+}
+int main()
+{
+	printf ("Ingrese 3 distacias en coordenadas x & y \n");
+    printf ("Primera Coordenada X : "); scanf("%d",&Px1); 
+	printf (" Y: ");
+    scanf ("%d",&Py1);
+    printf ("\n");
+    printf ("Segunda Coordenada X : "); scanf("%d",&Px2); 
+	printf (" Y: "); 
+    scanf ("%d",&Py2);
+    printf ("\n");
+    printf ("Tercera Coordenada X : "); scanf("%d",&Px3); 
+	printf (" Y: "); 
+    scanf ("%d",&Py3);
+    printf ("\n");
+    Rvarix=Varicentro(Px1, Px2, Px3);
+    Rvariy=Varicentro(Py1, Py2, Py3);
+    Disp1p2=Distancia(Px1, Px2, Py1, Py2);
+    Disp2p3=Distancia(Px2, Px3, Py2, Py3);
+    Disp1p3=Distancia(Px1, Px3, Py1, Py3);
+    
+    printf ("El Varicentro del triangulo tiene las coordenadas de (%f , ",Rvarix); 
+	printf("%f)\n",Rvariy);
+    printf ("La distancia entre p1 y p2 es de: %f \n",Disp1p2);
+    printf ("La distancia entre p2 y p3 es de: %f \n",Disp2p3);
+    printf ("La distancia entre p3 y p1 es de: %f \n",Disp1p3);
+
+return 0;
+}
